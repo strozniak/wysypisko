@@ -1,4 +1,16 @@
 Wysypisko::Application.routes.draw do
+  get "pages/main"
+
+  get "pages/add"
+
+  get "pages/register"
+
+  get "pages/top"
+
+  get "pages/random"
+
+  get "pages/stats"
+
   resources :entries
 
   resources :users
