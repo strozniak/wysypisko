@@ -1,17 +1,13 @@
 Wysypisko::Application.routes.draw do
-	match '/add', :to => 'pages#add'
-	match '/register', :to => 'pages#register'
-	match '/top', :to => 'pages#top'
-	match '/random', :to => 'pages#random'
-	match '/stats', :to => 'pages#stats'
-
-	root :to => 'pages#main'
-	root_path => '/'
-	root_url  => 'http://localhost:3000/'
-
-  resources :entries
-
-  resources :users
+	
+  match '/add', :to => 'pages#add'
+  match '/about', :to => 'pages#about'
+  match '/register', :to => 'pages#register'
+  match '/top', :to => 'pages#top'
+  match '/random', :to => 'pages#random'
+  match '/stats', :to => 'pages#stats'
+  
+  root :to => 'pages#main'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

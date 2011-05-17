@@ -23,4 +23,8 @@ class PagesController < ApplicationController
     @title = "Statystyki"
   end
 
+  def help
+    @title = "Pomoc"
+  end
+
 end
