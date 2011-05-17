@@ -1,15 +1,13 @@
 Wysypisko::Application.routes.draw do
-  get "pages/main"
+	match '/add', :to => 'pages#add'
+	match '/register', :to => 'pages#register'
+	match '/top', :to => 'pages#top'
+	match '/random', :to => 'pages#random'
+	match '/stats', :to => 'pages#stats'
 
-  get "pages/add"
-
-  get "pages/register"
-
-  get "pages/top"
-
-  get "pages/random"
-
-  get "pages/stats"
+	root :to => 'pages#main'
+	root_path => '/'
+	root_url  => 'http://localhost:3000/'
 
   resources :entries
 
