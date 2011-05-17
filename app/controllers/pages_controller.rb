@@ -19,8 +19,12 @@ class PagesController < ApplicationController
     @title = "Losowa"
   end
 
-  def stats
-    @title = "Statystyki"
+  def about
+    @title = "O autorze"
+  end
+
+  def contact
+    @title = "Kontakt"
   end
 
   def help

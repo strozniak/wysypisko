@@ -1,11 +1,14 @@
 Wysypisko::Application.routes.draw do
-	
+  get "users/new"
+
+  match '/signup',  :to => 'users#new'
+
   match '/add', :to => 'pages#add'
   match '/about', :to => 'pages#about'
-  match '/register', :to => 'pages#register'
   match '/top', :to => 'pages#top'
   match '/random', :to => 'pages#random'
   match '/stats', :to => 'pages#stats'
+  match '/contact', :to => 'pages#contact'
   
   root :to => 'pages#main'
 
