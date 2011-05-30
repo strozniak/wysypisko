@@ -10,23 +10,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110504155827) do
-
-  create_table "entries", :force => true do |t|
-    t.string   "title"
-    t.string   "content"
-    t.integer  "user_id"
-    t.date     "created"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20110530221722) do
 
   create_table "users", :force => true do |t|
-    t.string   "login"
-    t.string   "password"
-    t.string   "email"
     t.string   "name"
-    t.string   "surname"
+    t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
