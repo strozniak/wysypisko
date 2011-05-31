@@ -86,10 +86,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate-models (= 1.0.4)
-<<<<<<< HEAD
   gravatar_image_tag (= 1.0.0.pre2)
-=======
->>>>>>> modeling-users
   rails (= 3.0.7)
   rspec-rails (= 2.5.0)
   sqlite3-ruby (= 1.3.2)
