@@ -1,11 +1,23 @@
 # == Schema Information
+<<<<<<< HEAD
 # Schema version: 20110530213101
+=======
+# Schema version: 20110504155827
+>>>>>>> modeling-users
 #
 # Table name: users
 #
 #  id         :integer         not null, primary key
+<<<<<<< HEAD
 #  name       :string(255)
 #  email      :string(255)
+=======
+#  login      :string(255)
+#  password   :string(255)
+#  email      :string(255)
+#  name       :string(255)
+#  surname    :string(255)
+>>>>>>> modeling-users
 #  created_at :datetime
 #  updated_at :datetime
 #

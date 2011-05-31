@@ -1,5 +1,9 @@
 Wysypisko::Application.routes.draw do
   resources :users
+<<<<<<< HEAD
+=======
+  get "users/new"
+>>>>>>> modeling-users
 
   match '/signup',  :to => 'users#new'
 

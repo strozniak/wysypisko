@@ -1,15 +1,28 @@
 # == Schema Information
+<<<<<<< HEAD
 # Schema version: 20110530213101
+=======
+# Schema version: 20110504155827
+>>>>>>> modeling-users
 #
 # Table name: users
 #
 #  id         :integer         not null, primary key
+<<<<<<< HEAD
 #  name       :string(255)
 #  email      :string(255)
+=======
+#  login      :string(255)
+#  password   :string(255)
+#  email      :string(255)
+#  name       :string(255)
+#  surname    :string(255)
+>>>>>>> modeling-users
 #  created_at :datetime
 #  updated_at :datetime
 #
 
+<<<<<<< HEAD
 require 'digest'
 class User < ActiveRecord::Base
   attr_accessor :password
@@ -59,4 +72,23 @@ class User < ActiveRecord::Base
       Digest::SHA2.hexdigest(string)
     end    
 
+=======
+class User < ActiveRecord::Base
+	attr_accessor :password
+  attr_accessible :name, :email, :password, :password_confirmation
+
+
+  email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+
+  validates :name, :presence => true,
+                   :uniqueness => {:case_sensitive =>false},
+                   :length => { :maximum	=> 50 }
+	validates :email, 	:presence	=> true,
+			        :format		=> { :with => email_regex },
+			        :uniqueness	=> true
+
+	validates :password,	:presence	=> true,
+				:confirmation	=> true,
+				:length 	=> { :within => 6..40 }
+>>>>>>> modeling-users
 end
