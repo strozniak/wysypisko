@@ -8,11 +8,11 @@
       <li><%= link_to "Top", top_path %></li>
       <li><%= link_to "Losowa", random_path %></li>
       <li><%= link_to "Statystki", stats_path %></li>
-
       <% if signed_in? %>
       <li><%= link_to "Wyloguj sie", signout_path, :method => :delete %></li>
       <% else %>
       <li><%= link_to "Zaloguj sie", signin_path %></li>
+      <% end %>
     </ul>
   </nav>
 </header>
