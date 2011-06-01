@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
 
   def create
     user = User.authenticate(params[:session][:email],
-                            params[:session][:password])
+                             params[:session][:password])
     if user.nil?
         flash.now[:error] = "Nieporawny login lub haslo."
         @title = "Logowanie"
