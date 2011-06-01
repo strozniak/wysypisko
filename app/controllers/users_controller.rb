@@ -13,10 +13,6 @@ class UsersController < ApplicationController
   end
 
   def new
-    @title = "Sign up"
-  end
-
-  def new
     @user = User.new
     @title = "Rejestracja"
   end
