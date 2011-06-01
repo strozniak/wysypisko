@@ -1,2 +1,27 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<h1>Rejestracja</h1>
+
+<%= form_for(@user) do |f| %>
+  <%= render 'shared/error_messages' %>
+  <div class="field">
+    <%= f.label "Imię i nazwisko:" %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label "E-mail:" %><br />
+    <%= f.text_field :email %>
+  </div>
+  <div class="field">
+    <%= f.label "Hasło:" %><br />
+    <%= f.password_field :password %>
+  </div>
+  <div class="field">
+    <%= f.label :password_confirmation, "Potwierdzenie hasła:" %><br />
+    <%= f.password_field :password_confirmation %>
+  </div>
+  <div class="actions">
+    <%= f.submit "Zarejestruj" %>
+  </div>
+
+<% end %>  
+      
+
