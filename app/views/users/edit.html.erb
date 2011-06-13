@@ -1,27 +1,30 @@
-<h1>Rejestracja</h1>
+<h1>Edycja użytkownika</h1>
 
 <%= form_for(@user) do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
   <div class="field">
-    <%= f.label "Imię i nazwisko:" %><br />
+    <%= f.label "Imię i nazwisko" %><br />
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label "E-mail:" %><br />
+    <%= f.label "E-mail" %><br />
     <%= f.text_field :email %>
   </div>
   <div class="field">
-    <%= f.label "Hasło:" %><br />
+    <%= f.label "Hasło" %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation, "Potwierdzenie hasła:" %><br />
+    <%= f.label :password_confirmation, "Powtórz hasło" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
   <div class="actions">
-    <%= f.submit "Zarejestruj" %>
+    <%= f.submit "Aktualizuj" %>
   </div>
+<% end %>
 
-<% end %>  
-      
+<div>
+  <%= gravatar_for @user %>
+  <a href="http://gravatar.com/emails">Zmień awatar</a>
+</div>
 

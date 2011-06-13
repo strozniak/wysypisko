@@ -3,6 +3,11 @@
   <nav class="round">
     <ul>
       <li><%= link_to "Glowna", root_path %></li>
+      <% if signed_in? %>
+      <li><%= link_to "Users", users_path %></li>
+      <li><%= link_to "Moje konto", current_user %></li>
+      <li><%= link_to "Ustawienia", edit_user_path(current_user) %></li>
+      <% end %>
       <li><%= link_to "Zarejestruj sie", signup_path %></li>
       <li><%= link_to "Dodaj", add_path %></li>
       <li><%= link_to "Top", top_path %></li>
