@@ -2,13 +2,20 @@ class PagesController < ApplicationController
   def main
     @title = "Glowna"
      if signed_in?
-      @micropost = Micropost.new
+  #    @micropost = Micropost.new
       @feed_items = current_user.feed.paginate(:page => params[:page])
+     else 
+  #     @micropost = Micropost.new
+       @feed_items = Micropost.all.paginate(:page => params[:page])
     end
   end
 
   def add
     @title = "Dodaj zawartosc"
+     if signed_in?
+      @micropost = Micropost.new
+      @feed_items = current_user.feed.paginate(:page => params[:page])
+    end
   end
 
   def register
@@ -29,10 +36,6 @@ class PagesController < ApplicationController
 
   def contact
     @title = "Kontakt"
-  end
-
-  def help
-    @title = "Pomoc"
   end
 
 end

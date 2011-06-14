@@ -1,10 +1,15 @@
 <%= form_for @micropost do |f| %>
   <%= render 'shared/error_messages', :object => f.object %>
+  <h5 class="micropost">Tytuł:</h5>
   <div class="field">
     <%= f.text_area :content %>
+  </div> 
+  <h5 class="micropost">Link:</h5>
+  <div class="field">
+    <%= f.text_area :url %>
   </div>
   <div class="actions">
-    <%= f.submit "Submit" %>
+    <%= f.submit "Przeslij" %>
   </div>
 <% end %>
 

@@ -192,6 +192,10 @@ h1.micropost {
   margin-bottom: 0.3em;
 }
 
+h5.micropost {
+  margin-bottom: 0.1em;
+}
+
 table.microposts {
   margin-top: 1em;
 }
@@ -239,7 +243,7 @@ form.new_micropost {
 }
 
 form.new_micropost textarea {
-  height: 4em;
+  height: 2em;
   margin-bottom: 0;
 }
 

@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110531095628
+# Schema version: 20110614110801
 #
 # Table name: users
 #
@@ -10,6 +10,7 @@
 #  updated_at         :datetime
 #  encrypted_password :string(255)
 #  salt               :string(255)
+#  admin              :boolean
 #
 
 require 'digest'
@@ -18,6 +19,7 @@ class User < ActiveRecord::Base
   attr_accessible :name, :email, :password, :password_confirmation
 
   has_many :microposts, :dependent => :destroy
+  has_many :comments,   :dependent => :destroy, :through => :microposts
 
   email_regex = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -50,8 +52,7 @@ class User < ActiveRecord::Base
   end
 
   def feed
-    # This is preliminary. See Chapter 12 for the full implementation.
-    Micropost.where("user_id = ?", id)
+    Micropost.all
   end
 
   private

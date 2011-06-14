@@ -1,2 +1,24 @@
-<h1>Dodaj zawartość</h1>
-<p>Find me in app/views/pages/add.html.erb</p>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">Dodaj zawartość</h1>
+        <%= render 'shared/micropost_form' %>
+	<%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Zaloguj się</h1>
+
+  <p>
+   Należy być zalogowanym użytkownikiem by dodawać zawartość tej strony.
+   Jeśli jeszcze nie masz konta zarejestruj się.
+  </p>
+
+  <%= link_to "Rejestracja!", signup_path, :class => "signup_button round" %>
+<% end %>
+

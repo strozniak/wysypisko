@@ -5,16 +5,23 @@
   <td class="micropost">
     <span class="user">
       <%= link_to feed_item.user.name, feed_item.user %>
-    </span>
-    <span class="content"><%= feed_item.content %></span>
+    </span><br />
+    <span class="content"><%= feed_item.content %></span><br />
+   <% if !feed_item.url.nil? %>
+	<% if video?(feed_item.url) %>
+		<iframe width="460" height="310" src="http://www.youtube.com/embed/<%= video(feed_item.url) %>" frameborder="0" allowfullscreen></iframe>
+	<% else %>
+		<img src="<%= feed_item.url %>" alt="nievideo" /></span>
+	<% end %>
+     <% end %>
     <span class="timestamp">
-      Posted <%= time_ago_in_words(feed_item.created_at) %> ago.
+      Wysłano <%= feed_item.created_at %>.
     </span>
   </td>
-  <% if current_user?(feed_item.user) %>
+  <% if current_user?(feed_item.user) or admin? %>
   <td>
     <%= link_to "delete", feed_item, :method => :delete,
-                                     :confirm => "You sure?",
+                                     :confirm => "Jestes pewien?",
                                      :title => feed_item.content %>
   </td>
   <% end %>

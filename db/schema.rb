@@ -10,13 +10,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110613234701) do
+ActiveRecord::Schema.define(:version => 20110614110801) do
+
+  create_table "comments", :force => true do |t|
+    t.string   "content"
+    t.integer  "micropost_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "microposts", :force => true do |t|
     t.string   "content"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "url"
+    t.integer  "likes"
   end
 
   create_table "users", :force => true do |t|

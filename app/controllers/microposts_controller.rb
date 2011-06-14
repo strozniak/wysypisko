@@ -4,6 +4,7 @@ class MicropostsController < ApplicationController
   
   def create
     @micropost  = current_user.microposts.build(params[:micropost])
+    @micropost.likes = 0
     if @micropost.save
       flash[:success] = "Utworzono wpis!"
       redirect_to root_path
@@ -16,6 +17,10 @@ class MicropostsController < ApplicationController
   def destroy
     @micropost.destroy
     redirect_back_or root_path
+  end
+	
+  def add_like
+    @micropost.likes += 1
   end
 
   private

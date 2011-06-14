@@ -1,11 +1,25 @@
 <tr>
   <td class="micropost">
-    <span class="content"><%= micropost.content %></span>
+    <span class="content"><%= micropost.content %></span><br />    
+    <span class="url">	
+     <% if !micropost.url.nil? %>
+	<% if video?(micropost.url) %>
+		<iframe width="460" height="310" src="http://www.youtube.com/embed/<%= video(micropost.url) %>" frameborder="0" allowfullscreen></iframe>
+	<% else %>
+		<img src="<%= micropost.url %>" />
+	<% end %>
+      <% end %>
+    </span><br />
+    <% if !micropost.likes.nil? %>
+      <span class="likes">
+        Ocena: <%= micropost.likes %><br /> 
+<!--	<%= link_to like_img %></span>  -->
+    <% end %> 	
     <span class="timestamp">
-      Wysłano <%= time_ago_in_words(micropost.created_at) %> ago.
+      Wysłano <%= micropost.created_at %>
     </span>
   </td>
-  <% if current_user?(micropost.user) %>
+  <% if current_user?(micropost.user) or admin? %>
   <td>
     <%= link_to "delete", micropost, :method => :delete,
                                      :confirm => "Jestes pewien?",

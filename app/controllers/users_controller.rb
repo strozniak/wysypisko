@@ -13,6 +13,10 @@ class UsersController < ApplicationController
     @title = @user.name
   end
 
+  def show
+    @title = "Wpisy"
+  end
+
   def new
     @title = "Zarejestruj sie"
   end
@@ -45,7 +49,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update_attributes(params[:user])
-      flash[:success] = "	Profil uaktualniony."
+      flash[:success] = "Profil uaktualniony."
       redirect_to @user
     else
       @title = "Edytuj uzytkownika"
@@ -73,6 +77,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @microposts = @user.microposts.paginate(:page => params[:page])
+  #  @microposts = Micropost.all.paginate(:page => params[:page])
     @title = @user.name
   end
 

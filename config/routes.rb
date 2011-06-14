@@ -7,6 +7,7 @@ Wysypisko::Application.routes.draw do
   match '/signin',     :to => 'sessions#new'
   match '/signout',    :to => 'sessions#destroy'
 
+  match '/register', :to => 'pages#register'
   match '/add', :to => 'pages#add'
   match '/about', :to => 'pages#about'
   match '/top', :to => 'pages#top'
