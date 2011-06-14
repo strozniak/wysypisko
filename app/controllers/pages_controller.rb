@@ -1,6 +1,10 @@
 class PagesController < ApplicationController
   def main
     @title = "Glowna"
+     if signed_in?
+      @micropost = Micropost.new
+      @feed_items = current_user.feed.paginate(:page => params[:page])
+    end
   end
 
   def add
