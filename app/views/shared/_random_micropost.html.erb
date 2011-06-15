@@ -1,0 +1,27 @@
+<% micropost = Micropost.find_by_id(rand(Micropost.all.count)) %>
+<% while micropost.nil? %>
+  <% micropost = Micropost.find_by_id(rand(Micropost.all.count)) %>
+<% end %>
+
+
+<tr>
+  <td class="gravatar">
+    <%= link_to gravatar_for(micropost.user), micropost.user %>
+  </td>
+  <td class="micropost">
+    <span class="user">
+      <%= link_to micropost.user.name, micropost.user %>
+    </span><br />
+    <span class="content"><%= micropost.content %></span><br />
+   <% if !micropost.url.nil? %>
+	<% if video?(micropost.url) %>
+		<iframe width="460" height="310" src="http://www.youtube.com/embed/<%= video(feed_item.url) %>" frameborder="0" allowfullscreen></iframe>
+	<% else %>
+		<img src="<%= micropost.url %>" alt="nievideo" /></span>
+	<% end %>
+     <% end %>
+    <span class="timestamp">
+      Wysłano <%= micropost.created_at %>.
+    </span>
+  </td>
+</tr>

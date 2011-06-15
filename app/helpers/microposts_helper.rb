@@ -10,6 +10,7 @@ module MicropostsHelper
   end
 
   def add_like(post)
-    post.likes += 1
+    @micropost = post
+    @micropost.likes += 1
   end
 end

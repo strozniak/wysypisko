@@ -21,7 +21,7 @@ module SessionsHelper
     if !current_user.nil?
       current_user.admin?
     else
-      nil
+      false
     end
   end
 

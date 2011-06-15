@@ -9,7 +9,7 @@ module ApplicationHelper
   end
 
   def logo
-    image_tag("logo.png", :alt => "Sample App", :class => "round")
+    image_tag("logo2.png", :alt => "Sample App", :class => "round")
   end
 
   def dead_link_img

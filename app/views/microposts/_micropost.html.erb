@@ -13,7 +13,7 @@
     <% if !micropost.likes.nil? %>
       <span class="likes">
         Ocena: <%= micropost.likes %><br /> 
-<!--	<%= link_to like_img %></span>  -->
+	<%= link_to like_img, micropost, {:action => add_like(micropost) }%></span>  
     <% end %> 	
     <span class="timestamp">
       Wysłano <%= micropost.created_at %>
